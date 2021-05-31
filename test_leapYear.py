@@ -20,5 +20,13 @@ class Test_LeapYear(unittest.TestCase):
             result = (printedMsg.getvalue()).replace('\n','')
             self.assertEqual(result, "2100 is not a leap year.")
 
+    # Test if year is a leap year being multiple of 100 and 400
+    def test_isLeapYear_100and400(self):
+        with patch('sys.stdout', new = StringIO()) as printedMsg:
+            yearInput = 2000
+            leapYear.LeapYear(2000)
+            result = (printedMsg.getvalue()).replace('\n','')
+            self.assertEqual(result, "2000 is a leap year.")
+
 if __name__ == '__main__':
     unittest.main()
